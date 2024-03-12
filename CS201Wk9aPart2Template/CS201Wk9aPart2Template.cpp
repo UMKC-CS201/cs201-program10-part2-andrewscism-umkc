@@ -16,7 +16,7 @@ int main()
     vector<Person> myPeeps;
     vector<Student> myStudents;
     vector<Staff> myStaff;
-    vector<Person> allPeople;
+    vector<Person*> allPeople;
 
     // read the file & load into vector of Personal type
     readFile(myPeeps, myStudents, myStaff, allPeople);

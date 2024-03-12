@@ -1,7 +1,7 @@
 #include "Function.h"
 
 int readFile(vector<Person>& people, vector<Student>& students, 
-             vector<Staff>& staff, vector<Person> &allPeople) {
+             vector<Staff>& staff, vector<Person*> &allPeople) {
 
   //OPEN THE INPUT FILE
 	ifstream inFile;
@@ -34,19 +34,22 @@ int readFile(vector<Person>& people, vector<Student>& students,
 		if (row[0][0] == 'S') {
 			Student tempS(row[1], row[2], stoi(row[3]), stof(row[4]));
 			students.push_back(tempS);
-			allPeople.push_back(tempS);
+      Student* tempSP = new Student(row[1], row[2], stoi(row[3]), stof(row[4]));
+			allPeople.push_back(tempSP);
 		}
 		else if ((row[0][0] == 'E') || (row[0][0] == 'T')) {
 			Staff tempE('W',row[1], row[2], stoi(row[3]), stoi(row[4]), stof(row[5]));
 			// if valid, push the object onto the vector
 			staff.push_back(tempE);
-			allPeople.push_back(tempE);
+      Staff* tempEP = new Staff('W', row[1], row[2], stoi(row[3]), stoi(row[4]), stof(row[5]));
+			allPeople.push_back(tempEP);
 		}
     else  {
         Person tempP(row[1], row[2], stoi(row[3]));
         // if valid, push the object onto the vector
         people.push_back(tempP);
-        allPeople.push_back(tempP);
+        Person* tempPP = new Person(row[1], row[2], stoi(row[3]));
+        allPeople.push_back(tempPP);
       }
     }
     catch(...){
@@ -92,3 +95,14 @@ void printVector(vector<Staff> staff) {
   cout << "\nTOTAL STAFF: " << Staff::totalStaff << endl;
 }
 
+// write the code to print the vector
+void printVector(vector<Person*> all) {
+
+  cout << "\n\nTYPE" << setw(11) << "LAST NAME"
+    << setw(17) << "FIRST NAME" << setw(8) << "AGE"
+    << setw(18) << "OTHER INFO" << setw(38) << "PETS" << endl;
+  for (int i = 0; i < all.size(); i++)
+    all.at(i)->print();
+
+  cout << "\nTOTAL STAFF: " << Staff::totalStaff << endl;
+}
