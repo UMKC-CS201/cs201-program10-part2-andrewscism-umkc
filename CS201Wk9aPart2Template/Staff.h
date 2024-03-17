@@ -2,37 +2,41 @@
 
 #include "Person.h"
 
-class Staff : public Person{
+class Staff : public Person
+{
 protected:
    int hours;
-   float hrlyRate;
+   float hourlyRate;
 
 public:
-   Staff() : Person(){
-     hours = 0;
-     hrlyRate = 0.0;
-     totalStaff ++;
+   Staff() : Person()
+   {
+      hours = 0;
+      hourlyRate = 0.0;
+      totalStaff++;
    }
 
    Staff(char t, string l, string f, int a, int h, float hr)
-       : Person(l,f,a){
+       : Person(l, f, a)
+   {
       type = ' ';
       hours = h;
-      hrlyRate = hr;
-      totalStaff ++;
-    }
-   int getHours(){return hours;}
-   float getHrlyRate(){return hrlyRate;}
-   void setHours(int h){hours = h;}
-   void setHrlyRate(float hr){hrlyRate = hr;}
+      hourlyRate = hr;
+      totalStaff++;
+   }
+   int getHours() { return hours; }
+   float getHourlyRate() { return hourlyRate; }
+   void setHours(int h) { hours = h; }
+   void setHourlyRate(float hr) { hourlyRate = hr; }
 
-   void print(){
+   void print()
+   {
       cout << type << left << setw(4) << " "
-        << setw(15) << lname
-        << setw(15) << fname
-        << setw(5) << right << age 
-        << setw(10) << " "
-        << hours << ", " << hrlyRate << endl;
+           << setw(15) << lname
+           << setw(15) << fname
+           << setw(5) << right << age
+           << setw(10) << " "
+           << hours << ", " << hourlyRate << endl;
    }
    static int totalStaff;
 };

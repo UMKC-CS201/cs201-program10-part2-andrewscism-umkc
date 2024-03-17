@@ -4,22 +4,23 @@
 #include <iostream>
 using namespace std;
 
-class Person {
+class Person
+{
 protected:
-    char type; 
+  char type;
   string lname;
   string fname;
   int age;
 
 public:
-  Person();                            //constructor: default
-  Person(string l, string f, int a);   //constructor: overloaded (needs correction)
+  Person();                          // constructor: default
+  Person(string l, string f, int a); // constructor: overloaded (needs correction)
 
-  //add other accessors & mutators
-  string getFName() { return fname; }         //accessor (first name)
+  // add other accessors & mutators
+  string getFName() { return fname; } // accessor (first name)
   string getLName() { return lname; }
   int getAge() { return age; }
-  void setFName(string f) { fname = f; }    //mutator (first name)
+  void setFName(string f) { fname = f; } // mutator (first name)
   void setLName(string l) { lname = l; }
   void setAge(int a) { this->age = a; }
   virtual void print();

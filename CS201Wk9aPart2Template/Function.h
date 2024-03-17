@@ -9,8 +9,8 @@
 
 using namespace std;
 
-int readFile(vector<Person>&,vector<Student>&, vector<Staff>&, vector<Person*> &all);
+int readFile(vector<Person> &, vector<Student> &, vector<Staff> &, vector<Person *> &all);
 void printVector(vector<Person>);
 void printVector(vector<Student>);
 void printVector(vector<Staff>);
-void printVector(vector<Person*>);
+void printVector(vector<Person *>);
